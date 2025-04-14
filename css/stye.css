@@ -14,9 +14,10 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
+    background-color: var(--background);
 }
 
 /* Navigation */
@@ -72,10 +73,12 @@ body {
     text-align: center;
     padding: 6rem 2rem;
     color: white;
+    margin-top: 0;
 }
 
 .hero-content {
     max-width: 800px;
+    margin: 0 auto;
 }
 
 .hero h1 {
@@ -132,6 +135,7 @@ body {
 /* Contact Section */
 .contact {
     padding: 6rem 2rem;
+    background-color: var(--background);
 }
 
 .contact-container {
