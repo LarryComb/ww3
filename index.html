@@ -26,6 +26,53 @@
             align-items: center;
             gap: 10px;
         }
+        
+        /* Responsive styles */
+        @media screen and (max-width: 1200px) {
+            .nav-links {
+                gap: 15px;
+            }
+            .store-badge img {
+                height: 35px !important;
+            }
+        }
+        
+        @media screen and (max-width: 992px) {
+            .nav-links {
+                gap: 10px;
+            }
+            .store-badge img {
+                height: 30px !important;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 15px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 15px;
+            }
+            .store-badges-container {
+                margin-top: 10px;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .nav-links a:not(.store-badge) {
+                font-size: 14px;
+            }
+            .store-badge img {
+                height: 25px !important;
+            }
+            .cta-button {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
