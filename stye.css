@@ -265,3 +265,22 @@ body {
 .active-nav {
     font-weight: 700;
 }
+
+.blog-container ul {
+    margin: 15px 0 25px 25px;
+}
+
+.blog-container li {
+    margin-bottom: 10px;
+}
+
+.blog-container h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+.blog-container h3 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
