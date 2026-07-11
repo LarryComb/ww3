@@ -200,8 +200,179 @@
         .vs-bar.now{ background:linear-gradient(90deg,#16a34a,#22c55e); box-shadow:0 0 22px rgba(34,197,94,.45); }
         .vs-bar.wait{ background:linear-gradient(90deg,#475569,#64748b); }
         .pre-anim .vs-bar{ width:0 !important; min-width:0 !important; }
+        
+/* Credit article extras */
+.credit-gauge{
+    margin-top:24px;
+}
 
+.credit-gauge__track{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    height:14px;
+    border-radius:50px;
+    overflow:hidden;
+}
+
+.credit-gauge__excellent{
+    background:#22c55e;
+}
+
+.credit-gauge__good{
+    background:#86c97a;
+}
+
+.credit-gauge__fair{
+    background:#f59e0b;
+}
+
+.credit-gauge__risky{
+    background:#ef4444;
+}
+
+.credit-gauge__labels{
+    display:flex;
+    justify-content:space-between;
+    margin-top:8px;
+    font-size:.74rem;
+    color:#64748b;
+}
+
+.credit-gauge__result{
+    margin-top:18px;
+    border-radius:12px;
+    padding:13px;
+    text-align:center;
+    font-weight:800;
+    background:rgba(34,197,94,.12);
+    color:#16a34a;
+}
+/* Budgeting article extras */
+.budget-category{
+    margin-top:18px;
+}
+
+.slider.transport{
+    background:#ddd6fe;
+}
+
+.slider.transport::-webkit-slider-thumb{
+    border-color:#8b5cf6;
+}
+
+.slider.transport::-moz-range-thumb{
+    border-color:#8b5cf6;
+}
+
+.slider.fun{
+    background:#fecaca;
+}
+
+.slider.fun::-webkit-slider-thumb{
+    border-color:#ef4444;
+}
+
+.slider.fun::-moz-range-thumb{
+    border-color:#ef4444;
+}
+
+.budget-builder-result{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:28px;
+    align-items:center;
+    margin-top:30px;
+}
+
+.budget-builder-donut{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:conic-gradient(
+        #3b82f6 0% 35%,
+        #f59e0b 35% 50%,
+        #8b5cf6 50% 60%,
+        #ef4444 60% 75%,
+        #22c55e 75% 100%
+    );
+    box-shadow:0 10px 30px rgba(15,32,94,.12);
+    transition:background .35s ease;
+}
+
+.budget-builder-legend{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.budget-builder-legend > div{
+    display:grid;
+    grid-template-columns:14px 1fr auto;
+    gap:9px;
+    align-items:center;
+    color:#475569;
+    font-size:.94rem;
+}
+
+.budget-builder-legend b{
+    color:var(--ww-navy);
+}
+
+.budget-dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+}
+
+.budget-dot.housing{
+    background:#3b82f6;
+}
+
+.budget-dot.food{
+    background:#f59e0b;
+}
+
+.budget-dot.transport{
+    background:#8b5cf6;
+}
+
+.budget-dot.fun{
+    background:#ef4444;
+}
+
+.budget-dot.savings{
+    background:#22c55e;
+}
+
+.budget-unassigned{
+    margin-top:24px;
+    padding:13px 16px;
+    border-radius:12px;
+    background:#f1f5f9;
+    color:#475569;
+    text-align:center;
+    font-weight:700;
+    font-size:.92rem;
+}
+
+.budget-unassigned.zero{
+    background:#dcfce7;
+    color:#16a34a;
+}
+
+.budget-unassigned.over{
+    background:#fee2e2;
+    color:#dc2626;
+}
         @media screen and (max-width:760px){
+
+            .budget-builder-result{
+    grid-template-columns:1fr;
+}
+
+.budget-builder-donut{
+    margin:0 auto;
+}
             .culprit-grid, .options-grid, .creep-grid{ grid-template-columns:1fr; }
             .budget-grid, .growth-grid, .split{ grid-template-columns:1fr; }
             .gap-section{ padding:28px 20px; }
@@ -243,8 +414,8 @@
         <div class="acc-wrap">
 
             <!-- POST 1 — full interactive article -->
-            <div class="acc-item open" id="post-1">
-                <button class="acc-head" aria-expanded="true" aria-controls="post-1-body">
+            <div class="acc-item" id="post-1">
+                <button class="acc-head" aria-expanded="false" aria-controls="post-1-body">
                     <span class="acc-title"><span class="acc-num">1.</span> Living beneath your means</span>
                     <i class="fas fa-chevron-down acc-chevron"></i>
                 </button>
@@ -600,53 +771,1226 @@
                 </div>
             </div>
 
+            
             <!-- POST 3 -->
-            <div class="acc-item" id="post-3">
-                <button class="acc-head" aria-expanded="false" aria-controls="post-3-body">
-                    <span class="acc-title"><span class="acc-num">3.</span> Build an emergency fund</span>
-                    <i class="fas fa-chevron-down acc-chevron"></i>
-                </button>
-                <div class="acc-body" id="post-3-body">
-                    <div class="acc-body-inner">
-                        <div class="acc-pad">
-                            <p class="acc-summary">An emergency fund is the buffer between a bad week and a financial crisis. We'll cover how much to set aside, where to keep it, and how to build it without feeling the pinch.</p>
-                            <span class="acc-tag">Full article coming soon</span>
+<div class="acc-item" id="post-3">
+    <button class="acc-head" aria-expanded="false" aria-controls="post-3-body">
+        <span class="acc-title">
+            <span class="acc-num">3.</span>
+            Build an emergency fund
+        </span>
+        <i class="fas fa-chevron-down acc-chevron"></i>
+    </button>
+
+    <div class="acc-body" id="post-3-body">
+        <div class="acc-body-inner">
+            <div class="acc-pad">
+
+                <p class="acc-summary">
+                    An emergency fund is the buffer between a bad week and a financial crisis.
+                    We'll cover how much to set aside, where to keep it, and how to build it
+                    without feeling the pinch.
+                </p>
+
+                <hr class="acc-divider">
+
+                <div class="blog-body">
+
+                    <section class="blog-section reveal">
+                        <p class="lede">
+                            Your car doesn't check your calendar before the transmission goes.
+                            Your landlord doesn't care that this was already a tight month.
+                            And your job doesn't ask permission before a round of layoffs.
+                            Emergencies aren't rare — they're just unscheduled.
+                        </p>
+
+                        <blockquote class="pull-quote">
+                            <span class="pull-quote__big">
+                                One bad week should not become a bad year.
+                            </span>
+                            An emergency fund gives you breathing room when life gets expensive.
+                        </blockquote>
+
+                        <p>
+                            An <strong>emergency fund</strong> is money set aside specifically
+                            to absorb the unexpected — a repair, a medical bill, or a gap between
+                            jobs — without derailing your rent, your credit cards, or your sleep.
+                            It's boring on purpose. That's the whole point.
+                        </p>
+                    </section>
+
+                    <section class="blog-section reveal">
+                        <h2 class="blog-h2">
+                            Why “I'll figure it out” isn't a plan
+                        </h2>
+
+                        <div class="culprit-grid">
+                            <div class="culprit-card">
+                                <div class="culprit-icon">
+                                    <i class="fas fa-car-side"></i>
+                                </div>
+                                <h3>The car repair</h3>
+                                <p>
+                                    A $600 fix appears the same week rent is due and suddenly
+                                    becomes a credit-card balance.
+                                </p>
+                            </div>
+
+                            <div class="culprit-card">
+                                <div class="culprit-icon">
+                                    <i class="fas fa-chart-line-down"></i>
+                                </div>
+                                <h3>The layoff</h3>
+                                <p>
+                                    A job search expected to take a few weeks stretches into
+                                    two months while the bills keep arriving.
+                                </p>
+                            </div>
+
+                            <div class="culprit-card">
+                                <div class="culprit-icon">
+                                    <i class="fas fa-notes-medical"></i>
+                                </div>
+                                <h3>The medical bill</h3>
+                                <p>
+                                    Even with insurance, one visit can leave you with an expense
+                                    you never planned for.
+                                </p>
+                            </div>
                         </div>
-                    </div>
+
+                        <p>
+                            Without a fund, each surprise can become debt. With one, it becomes
+                            an expense you handle and move past.
+                        </p>
+                    </section>
+
+                    <section class="blog-section reveal">
+                        <h2 class="blog-h2">
+                            Meet the number that actually matters
+                        </h2>
+
+                        <p>
+                            Most advice recommends saving
+                            <strong>three to six months of essential expenses</strong>:
+                            rent, groceries, transportation, insurance, and minimum debt payments.
+                            Not your entire lifestyle — just what it takes to keep the lights on.
+                        </p>
+                    </section>
+
+                    <section class="blog-section tool reveal" id="emergency-target-tool">
+                        <div class="tool-head">
+                            <span class="tool-tag">
+                                <i class="fas fa-sliders"></i>
+                                Interactive
+                            </span>
+
+                            <h2 class="blog-h2">Find your emergency-fund target</h2>
+
+                            <p class="muted">
+                                Enter your essential monthly expenses and choose how many months
+                                of protection you want.
+                            </p>
+                        </div>
+
+                        <div class="budget-grid">
+                            <div class="budget-controls">
+                                <label class="field">
+                                    <span>Essential monthly expenses</span>
+
+                                    <div class="input-money">
+                                        <span>$</span>
+                                        <input
+                                            type="number"
+                                            id="ef-expenses"
+                                            value="1200"
+                                            min="0"
+                                            step="50"
+                                        >
+                                    </div>
+                                </label>
+
+                                <div class="slider-row">
+                                    <label>
+                                        Months of cushion
+                                        <b id="ef-months-val">3 months</b>
+                                    </label>
+
+                                    <input
+                                        type="range"
+                                        id="ef-months"
+                                        min="1"
+                                        max="9"
+                                        step="1"
+                                        value="3"
+                                        class="slider save"
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="growth-result" style="background:#ffffff;">
+                                <span
+                                    class="growth-result__lbl"
+                                    style="color:#64748b;"
+                                >
+                                    Your target
+                                </span>
+
+                                <span
+                                    class="growth-result__num"
+                                    id="ef-target"
+                                    style="color:var(--ww-green);"
+                                >
+                                    $3,600
+                                </span>
+
+                                <p
+                                    class="muted"
+                                    style="margin:0; font-size:.9rem;"
+                                >
+                                    Emergency fund
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="blog-section reveal">
+                        <h2 class="blog-h2">
+                            Where should you keep it?
+                        </h2>
+
+                        <p>
+                            It should not live in your everyday checking account, where it is
+                            one impulse purchase away from disappearing. It also should not be
+                            invested in the stock market, where it could lose value right when
+                            you need it.
+                        </p>
+
+                        <p>
+                            A separate <strong>high-yield savings account</strong> is usually
+                            the sweet spot: accessible, stable, and earning some interest while
+                            it waits.
+                        </p>
+                    </section>
+
+                    <section class="blog-section tool tool--dark reveal" id="emergency-fill-tool">
+                        <div class="tool-head">
+                            <span class="tool-tag light">
+                                <i class="fas fa-piggy-bank"></i>
+                                Interactive
+                            </span>
+
+                            <h2 class="blog-h2">How long will it take?</h2>
+
+                            <p class="muted-light">
+                                Choose a weekly savings amount and see how long it would take
+                                to reach your target.
+                            </p>
+                        </div>
+
+                        <div class="growth-grid">
+                            <div class="growth-controls">
+                                <div class="preset-row">
+                                    <span>Quick start:</span>
+
+                                    <button
+                                        class="preset ef-preset active"
+                                        data-amt="20"
+                                        type="button"
+                                    >
+                                        $20/week
+                                    </button>
+
+                                    <button
+                                        class="preset ef-preset"
+                                        data-amt="50"
+                                        type="button"
+                                    >
+                                        $50/week
+                                    </button>
+
+                                    <button
+                                        class="preset ef-preset"
+                                        data-amt="100"
+                                        type="button"
+                                    >
+                                        $100/week
+                                    </button>
+                                </div>
+
+                                <div class="slider-row light">
+                                    <label>
+                                        Save per week
+                                        <b id="ef-weekly-val">$20</b>
+                                    </label>
+
+                                    <input
+                                        type="range"
+                                        id="ef-weekly"
+                                        min="10"
+                                        max="200"
+                                        step="5"
+                                        value="20"
+                                        class="slider grow"
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="growth-result">
+                                <span class="growth-result__lbl">
+                                    Estimated time
+                                </span>
+
+                                <span
+                                    class="growth-result__num"
+                                    id="ef-monthsfill"
+                                >
+                                    42 months
+                                </span>
+
+                                <div class="growth-breakdown">
+                                    <div>
+                                        <span id="ef-weeks">180 weeks</span>
+                                        <small>total time</small>
+                                    </div>
+
+                                    <div class="plus">→</div>
+
+                                    <div>
+                                        <span class="hl" id="ef-datetarget">$3,600</span>
+                                        <small>target</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="blog-section reveal">
+                        <h2 class="blog-h2 center">
+                            So how do you actually start?
+                        </h2>
+
+                        <p class="center muted">
+                            Four manageable steps.
+                        </p>
+
+                        <ol class="playbook">
+                            <li class="play-card">
+                                <span class="play-num">1</span>
+
+                                <div>
+                                    <h3>
+                                        <i class="fas fa-flag"></i>
+                                        Start with a smaller first goal
+                                    </h3>
+
+                                    <p>
+                                        Don't aim for six months on day one. Build $500 to $1,000
+                                        first. That alone can cover many common emergencies.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="play-card">
+                                <span class="play-num">2</span>
+
+                                <div>
+                                    <h3>
+                                        <i class="fas fa-robot"></i>
+                                        Automate a weekly transfer
+                                    </h3>
+
+                                    <p>
+                                        Schedule it for payday, before the money gets absorbed
+                                        into regular spending.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="play-card">
+                                <span class="play-num">3</span>
+
+                                <div>
+                                    <h3>
+                                        <i class="fas fa-building-columns"></i>
+                                        Keep it separate and boring
+                                    </h3>
+
+                                    <p>
+                                        Use a dedicated savings account rather than everyday
+                                        checking or an investment account.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="play-card">
+                                <span class="play-num">4</span>
+
+                                <div>
+                                    <h3>
+                                        <i class="fas fa-rotate"></i>
+                                        Refill it after you use it
+                                    </h3>
+
+                                    <p>
+                                        Using your emergency fund is not failure. Rebuilding it
+                                        simply becomes your next savings priority.
+                                    </p>
+                                </div>
+                            </li>
+                        </ol>
+                    </section>
+
+                    <section class="blog-section reveal">
+                        <h2 class="blog-h2 center">
+                            This isn't about being afraid
+                        </h2>
+
+                        <p class="center">
+                            An emergency fund is not about assuming the worst is coming.
+                            It is about making sure that, if it does, the cost is a withdrawal
+                            instead of your peace of mind.
+                        </p>
+
+                        <p class="kicker-line center">
+                            Boring habit.
+                            <span class="grad-text">
+                                Life-changing when you actually need it.
+                            </span>
+                        </p>
+                    </section>
+
+                    <section class="blog-cta reveal">
+                        <h2>Ready to build your cushion?</h2>
+
+                        <p>
+                            Let WlthyWise help you find your number and automate the rest.
+                        </p>
+
+                        <a
+                            href="index.html#contact"
+                            class="cta-button cta-button--solid"
+                        >
+                            Get Started
+                        </a>
+                    </section>
+
                 </div>
             </div>
+        </div>
+    </div>
+</div>
 
             <!-- POST 4 -->
-            <div class="acc-item" id="post-4">
-                <button class="acc-head" aria-expanded="false" aria-controls="post-4-body">
-                    <span class="acc-title"><span class="acc-num">4.</span> Understand credit and use it wisely</span>
-                    <i class="fas fa-chevron-down acc-chevron"></i>
-                </button>
-                <div class="acc-body" id="post-4-body">
-                    <div class="acc-body-inner">
-                        <div class="acc-pad">
-                            <p class="acc-summary">Credit isn't the enemy — misunderstanding it is. Learn how credit scores actually work and how to use credit as a tool that works for you, not against you.</p>
-                            <span class="acc-tag">Full article coming soon</span>
-                        </div>
+<div class="acc-item" id="post-4">
+    <button class="acc-head" aria-expanded="false" aria-controls="post-4-body">
+        <span class="acc-title">
+            <span class="acc-num">4.</span>
+            Understand credit and use it wisely
+        </span>
+        <i class="fas fa-chevron-down acc-chevron"></i>
+    </button>
+
+    <div class="acc-body" id="post-4-body">
+        <div class="acc-body-inner">
+            <div class="acc-pad">
+
+                <p class="acc-summary">
+                    Credit isn't the enemy — misunderstanding it is.
+                    Learn how credit scores actually work and how to use
+                    credit as a tool that works for you, not against you.
+                </p>
+
+                
+                <hr class="acc-divider">
+
+<div class="blog-body">
+
+    <section class="blog-section reveal">
+        <p class="lede">
+            Credit sounds complicated because it's usually explained that way —
+            a wall of jargon about utilization ratios and hard inquiries that
+            makes people avoid the topic entirely.
+        </p>
+
+        <blockquote class="pull-quote">
+            <span class="pull-quote__big">
+                Your score doesn't reward how much money you have.
+            </span>
+            It rewards how predictable you are.
+        </blockquote>
+
+        <p>
+            <strong>Credit</strong> is borrowed trust. Every time you use it
+            responsibly, that trust compounds through cheaper loans, better
+            apartment options, and stronger financial flexibility.
+        </p>
+    </section>
+
+    <section class="blog-section reveal">
+        <h2 class="blog-h2">What actually moves your score</h2>
+
+        <div class="culprit-grid">
+            <div class="culprit-card">
+                <div class="culprit-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h3>Payment history</h3>
+                <p>
+                    The biggest factor. One late payment can undo months of
+                    otherwise good habits.
+                </p>
+            </div>
+
+            <div class="culprit-card">
+                <div class="culprit-icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <h3>Credit utilization</h3>
+                <p>
+                    How much of your available credit you are using. Lower is
+                    generally better.
+                </p>
+            </div>
+
+            <div class="culprit-card">
+                <div class="culprit-icon">
+                    <i class="fas fa-clock-rotate-left"></i>
+                </div>
+                <h3>Length and mix</h3>
+                <p>
+                    Older accounts and a healthy mix of credit types can help
+                    your score over time.
+                </p>
+            </div>
+        </div>
+
+        <p>
+            None of these require a finance degree. They require consistency.
+        </p>
+    </section>
+
+    <section class="blog-section reveal">
+        <h2 class="blog-h2">
+            The number nobody explains: utilization
+        </h2>
+
+        <p>
+            Utilization is simply your balance divided by your credit limit.
+            A higher percentage can make it appear that you rely heavily on
+            borrowed money.
+        </p>
+    </section>
+
+    <section class="blog-section tool reveal" id="credit-utilization-tool">
+        <div class="tool-head">
+            <span class="tool-tag">
+                <i class="fas fa-sliders"></i>
+                Interactive
+            </span>
+
+            <h2 class="blog-h2">Check your utilization</h2>
+
+            <p class="muted">
+                Enter your credit limit and adjust your balance to see where
+                your ratio lands.
+            </p>
+        </div>
+
+        <label class="field">
+            <span>Credit limit</span>
+
+            <div class="input-money">
+                <span>$</span>
+                <input
+                    type="number"
+                    id="cr-limit"
+                    value="5000"
+                    min="1"
+                    step="100"
+                >
+            </div>
+        </label>
+
+        <div class="slider-row">
+            <label>
+                Current balance
+                <b id="cr-balance-val">$500</b>
+            </label>
+
+            <input
+                type="range"
+                id="cr-balance"
+                min="0"
+                max="5000"
+                step="50"
+                value="500"
+                class="slider save"
+            >
+        </div>
+
+        <div class="credit-gauge">
+            <div class="credit-gauge__track">
+                <span class="credit-gauge__excellent"></span>
+                <span class="credit-gauge__good"></span>
+                <span class="credit-gauge__fair"></span>
+                <span class="credit-gauge__risky"></span>
+            </div>
+
+            <div class="credit-gauge__labels">
+                <span>0%</span>
+                <span>10%</span>
+                <span>30%</span>
+                <span>50%</span>
+                <span>100%</span>
+            </div>
+
+            <div class="credit-gauge__result" id="cr-result">
+                10% — Excellent
+            </div>
+        </div>
+    </section>
+
+    <section class="blog-section reveal">
+        <p>
+            Notice what did not matter in that calculator: your income.
+            Utilization is about the ratio between your balance and limit.
+        </p>
+
+        <h2 class="blog-h2">
+            The real cost of carrying a balance
+        </h2>
+
+        <p>
+            Interest compounds against you the same way investment growth can
+            compound for you — except it is working in the wrong direction.
+        </p>
+    </section>
+
+    <section class="blog-section tool tool--dark reveal" id="credit-interest-tool">
+        <div class="tool-head">
+            <span class="tool-tag light">
+                <i class="fas fa-credit-card"></i>
+                Interactive
+            </span>
+
+            <h2 class="blog-h2">
+                What carrying a balance actually costs
+            </h2>
+
+            <p class="muted-light">
+                See how your balance and APR turn into real interest.
+            </p>
+        </div>
+
+        <div class="growth-grid">
+            <div class="growth-controls">
+                <label class="field">
+                    <span style="color:#dbe5ff;">Card balance</span>
+
+                    <div class="input-money">
+                        <span>$</span>
+                        <input
+                            type="number"
+                            id="cr-carry"
+                            value="2000"
+                            min="0"
+                            step="50"
+                        >
                     </div>
+                </label>
+
+                <div class="slider-row light">
+                    <label>
+                        Interest rate
+                        <b id="cr-apr-val">22%</b>
+                    </label>
+
+                    <input
+                        type="range"
+                        id="cr-apr"
+                        min="10"
+                        max="30"
+                        step="1"
+                        value="22"
+                        class="slider grow"
+                    >
                 </div>
             </div>
 
-            <!-- POST 5 -->
-            <div class="acc-item" id="post-5">
-                <button class="acc-head" aria-expanded="false" aria-controls="post-5-body">
-                    <span class="acc-title"><span class="acc-num">5.</span> Start budgeting today</span>
-                    <i class="fas fa-chevron-down acc-chevron"></i>
-                </button>
-                <div class="acc-body" id="post-5-body">
-                    <div class="acc-body-inner">
-                        <div class="acc-pad">
-                            <p class="acc-summary">The best budget is the one you'll actually stick to. Start tracking where your money goes today with our free template — it only takes a few clicks.</p>
-                            <span class="acc-tag">Full article coming soon</span>
-                        </div>
+            <div class="growth-result">
+                <span class="growth-result__lbl">
+                    Estimated interest
+                </span>
+
+                <span
+                    class="growth-result__num"
+                    id="cr-yearly-interest"
+                >
+                    $440
+                </span>
+
+                <div class="growth-breakdown">
+                    <div>
+                        <span id="cr-monthly-interest">$37</span>
+                        <small>per month</small>
+                    </div>
+
+                    <div class="plus">→</div>
+
+                    <div>
+                        <span class="hl">1 year</span>
+                        <small>at this rate</small>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="blog-section reveal">
+        <h2 class="blog-h2 center">
+            So what do you actually do about it?
+        </h2>
+
+        <p class="center muted">
+            Four simple rules.
+        </p>
+
+        <ol class="playbook">
+            <li class="play-card">
+                <span class="play-num">1</span>
+
+                <div>
+                    <h3>
+                        <i class="fas fa-calendar-check"></i>
+                        Pay on time, every time
+                    </h3>
+
+                    <p>
+                        Set up autopay for at least the minimum so a forgotten
+                        due date cannot damage your history.
+                    </p>
+                </div>
+            </li>
+
+            <li class="play-card">
+                <span class="play-num">2</span>
+
+                <div>
+                    <h3>
+                        <i class="fas fa-chart-line"></i>
+                        Keep utilization low
+                    </h3>
+
+                    <p>
+                        Try to stay below 30%, and ideally below 10% before
+                        applying for an apartment or loan.
+                    </p>
+                </div>
+            </li>
+
+            <li class="play-card">
+                <span class="play-num">3</span>
+
+                <div>
+                    <h3>
+                        <i class="fas fa-hourglass-half"></i>
+                        Let older accounts age
+                    </h3>
+
+                    <p>
+                        Your oldest account may help simply by remaining open.
+                        Avoid closing it unless it costs you money.
+                    </p>
+                </div>
+            </li>
+
+            <li class="play-card">
+                <span class="play-num">4</span>
+
+                <div>
+                    <h3>
+                        <i class="fas fa-file-signature"></i>
+                        Apply only when needed
+                    </h3>
+
+                    <p>
+                        Space out applications so unnecessary hard inquiries
+                        do not pile up.
+                    </p>
+                </div>
+            </li>
+        </ol>
+    </section>
+
+    <section class="blog-section reveal">
+        <h2 class="blog-h2 center">
+            Credit is a tool, not an enemy
+        </h2>
+
+        <p class="center">
+            Used well, credit can open doors without costing you extra money.
+            The game is being predictable, paying on time, and keeping balances
+            manageable.
+        </p>
+
+        <p class="kicker-line center">
+            Predictable. On time.
+            <span class="grad-text">Low utilization.</span>
+        </p>
+    </section>
+
+    <section class="blog-cta reveal">
+        <h2>Ready to make credit work for you?</h2>
+
+        <p>
+            Let WlthyWise help you track balances, limits, and due dates.
+        </p>
+
+        <a
+            href="index.html#contact"
+            class="cta-button cta-button--solid"
+        >
+            Get Started
+        </a>
+    </section>
+
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- POST 5 -->
+<div class="acc-item" id="post-5">
+    <button class="acc-head" aria-expanded="false" aria-controls="post-5-body">
+        <span class="acc-title">
+            <span class="acc-num">5.</span>
+            Start budgeting today
+        </span>
+        <i class="fas fa-chevron-down acc-chevron"></i>
+    </button>
+
+    <div class="acc-body" id="post-5-body">
+        <div class="acc-body-inner">
+            <div class="acc-pad">
+
+                <p class="acc-summary">
+                    The best budget is the one you'll actually stick to.
+                    Start tracking where your money goes today with our free
+                    template — it only takes a few clicks.
+                </p>
+
+                <hr class="acc-divider">
+
+                <div class="blog-body">
+
+                    <section class="blog-section reveal">
+                        <p class="lede">
+                            Say “budget” out loud and most people hear punishment:
+                            spreadsheets, guilt, and giving up coffee forever.
+                            No wonder it never sticks.
+                        </p>
+
+                        <blockquote class="pull-quote">
+                            <span class="pull-quote__big">
+                                A budget isn't a cage.
+                            </span>
+                            It's a map you draw yourself, so you know where you're
+                            headed before you run out of gas.
+                        </blockquote>
+
+                        <p>
+                            A <strong>budget</strong> is simply a plan for your money
+                            before it leaves your account, rather than a mystery you
+                            solve after it is already gone.
+                        </p>
+                    </section>
+
+                    <section class="blog-section reveal">
+                        <h2 class="blog-h2">
+                            Why most budgets fail before they start
+                        </h2>
+
+                        <div class="culprit-grid">
+                            <div class="culprit-card">
+                                <div class="culprit-icon">
+                                    <i class="fas fa-puzzle-piece"></i>
+                                </div>
+                                <h3>Too complicated</h3>
+                                <p>
+                                    Fifteen categories and a color-coded spreadsheet
+                                    can make quitting feel easier than budgeting.
+                                </p>
+                            </div>
+
+                            <div class="culprit-card">
+                                <div class="culprit-icon">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <h3>Too restrictive</h3>
+                                <p>
+                                    A plan with zero room for enjoyment rarely survives
+                                    contact with real life.
+                                </p>
+                            </div>
+
+                            <div class="culprit-card">
+                                <div class="culprit-icon">
+                                    <i class="fas fa-bullseye"></i>
+                                </div>
+                                <h3>No room for fun</h3>
+                                <p>
+                                    A realistic budget includes the things you actually
+                                    want to spend money on.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="blog-section reveal">
+                        <h2 class="blog-h2">Give every dollar a job</h2>
+
+                        <p>
+                            Start with your income, then decide where each dollar goes
+                            before it disappears into small, forgettable purchases.
+                        </p>
+                    </section>
+
+                    <section class="blog-section tool reveal" id="budget-builder-tool">
+                        <div class="tool-head">
+                            <span class="tool-tag">
+                                <i class="fas fa-sliders"></i>
+                                Interactive
+                            </span>
+
+                            <h2 class="blog-h2">Build your budget</h2>
+
+                            <p class="muted">
+                                Enter your monthly income and adjust each category until
+                                every dollar has a job.
+                            </p>
+                        </div>
+
+                        <label class="field">
+                            <span>Monthly income</span>
+
+                            <div class="input-money">
+                                <span>$</span>
+                                <input
+                                    type="number"
+                                    id="bg-income"
+                                    value="2500"
+                                    min="0"
+                                    step="50"
+                                >
+                            </div>
+                        </label>
+
+                        <div class="budget-category">
+                            <div class="slider-row">
+                                <label>
+                                    Housing
+                                    <b id="bg-housing-val">35%</b>
+                                </label>
+                                <input type="range" id="cat-housing"
+                                    min="0" max="100" step="1" value="35"
+                                    class="slider needs">
+                            </div>
+                        </div>
+
+                        <div class="budget-category">
+                            <div class="slider-row">
+                                <label>
+                                    Food
+                                    <b id="bg-food-val">15%</b>
+                                </label>
+                                <input type="range" id="cat-food"
+                                    min="0" max="100" step="1" value="15"
+                                    class="slider wants">
+                            </div>
+                        </div>
+
+                        <div class="budget-category">
+                            <div class="slider-row">
+                                <label>
+                                    Transportation
+                                    <b id="bg-transport-val">10%</b>
+                                </label>
+                                <input type="range" id="cat-transport"
+                                    min="0" max="100" step="1" value="10"
+                                    class="slider transport">
+                            </div>
+                        </div>
+
+                        <div class="budget-category">
+                            <div class="slider-row">
+                                <label>
+                                    Fun
+                                    <b id="bg-fun-val">15%</b>
+                                </label>
+                                <input type="range" id="cat-fun"
+                                    min="0" max="100" step="1" value="15"
+                                    class="slider fun">
+                            </div>
+                        </div>
+
+                        <div class="budget-category">
+                            <div class="slider-row">
+                                <label>
+                                    Savings
+                                    <b id="bg-savings-val">25%</b>
+                                </label>
+                                <input type="range" id="cat-savings"
+                                    min="0" max="100" step="1" value="25"
+                                    class="slider save">
+                            </div>
+                        </div>
+
+                        <div class="budget-builder-result">
+                            <div class="budget-builder-donut" id="bg-donut"></div>
+
+                            <div class="budget-builder-legend">
+                                <div>
+                                    <span class="budget-dot housing"></span>
+                                    Housing
+                                    <b id="bg-housing-amt">$875</b>
+                                </div>
+
+                                <div>
+                                    <span class="budget-dot food"></span>
+                                    Food
+                                    <b id="bg-food-amt">$375</b>
+                                </div>
+
+                                <div>
+                                    <span class="budget-dot transport"></span>
+                                    Transportation
+                                    <b id="bg-transport-amt">$250</b>
+                                </div>
+
+                                <div>
+                                    <span class="budget-dot fun"></span>
+                                    Fun
+                                    <b id="bg-fun-amt">$375</b>
+                                </div>
+
+                                <div>
+                                    <span class="budget-dot savings"></span>
+                                    Savings
+                                    <b id="bg-savings-amt">$625</b>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="budget-unassigned zero" id="bg-unassigned">
+                            $0 unassigned — every dollar has a job
+                        </div>
+                    </section>
+
+                    <section class="blog-section reveal">
+                        <p>
+                            Savings should be a category, not an afterthought.
+                            When it receives only “whatever is left,” it often
+                            receives nothing.
+                        </p>
+
+                        <h2 class="blog-h2">
+                            What one small cut is actually worth
+                        </h2>
+
+                        <p>
+                            You do not need to overhaul your entire life.
+                            Redirecting one small monthly amount into savings can
+                            add up faster than it seems.
+                        </p>
+                    </section>
+
+                    <section class="blog-section tool tool--dark reveal"
+                        id="budget-redirect-tool">
+
+                        <div class="tool-head">
+                            <span class="tool-tag light">
+                                <i class="fas fa-arrow-right-arrow-left"></i>
+                                Interactive
+                            </span>
+
+                            <h2 class="blog-h2">
+                                The power of a small redirect
+                            </h2>
+
+                            <p class="muted-light">
+                                Move a small monthly expense into savings and see
+                                what it could become over time.
+                            </p>
+                        </div>
+
+                        <div class="growth-grid">
+                            <div class="growth-controls">
+                                <div class="slider-row light">
+                                    <label>
+                                        Monthly amount redirected
+                                        <b id="bg-redirect-val">$50</b>
+                                    </label>
+
+                                    <input
+                                        type="range"
+                                        id="bg-redirect"
+                                        min="10"
+                                        max="300"
+                                        step="10"
+                                        value="50"
+                                        class="slider grow"
+                                    >
+                                </div>
+
+                                <div class="slider-row light">
+                                    <label>
+                                        Keep it up for
+                                        <b id="bg-years-val">5 years</b>
+                                    </label>
+
+                                    <input
+                                        type="range"
+                                        id="bg-years"
+                                        min="1"
+                                        max="15"
+                                        step="1"
+                                        value="5"
+                                        class="slider grow"
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="growth-result">
+                                <span class="growth-result__lbl">
+                                    Future value
+                                </span>
+
+                                <span class="growth-result__num" id="bg-future">
+                                    $3,590
+                                </span>
+
+                                <div class="growth-breakdown">
+                                    <div>
+                                        <span id="bg-total-in">$3,000</span>
+                                        <small>you put in</small>
+                                    </div>
+
+                                    <div class="plus">+</div>
+
+                                    <div>
+                                        <span class="hl">7%</span>
+                                        <small>annual return</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="blog-section reveal">
+                        <h2 class="blog-h2 center">
+                            So how do you actually start?
+                        </h2>
+
+                        <p class="center muted">Four manageable steps.</p>
+
+                        <ol class="playbook">
+                            <li class="play-card">
+                                <span class="play-num">1</span>
+                                <div>
+                                    <h3>
+                                        <i class="fas fa-eye"></i>
+                                        Track for one week
+                                    </h3>
+                                    <p>
+                                        Watch where the money goes before trying to
+                                        change anything.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="play-card">
+                                <span class="play-num">2</span>
+                                <div>
+                                    <h3>
+                                        <i class="fas fa-chart-pie"></i>
+                                        Pick a simple framework
+                                    </h3>
+                                    <p>
+                                        Use something like 50/30/20 as a starting
+                                        point and adjust it to fit your life.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="play-card">
+                                <span class="play-num">3</span>
+                                <div>
+                                    <h3>
+                                        <i class="fas fa-robot"></i>
+                                        Automate savings first
+                                    </h3>
+                                    <p>
+                                        Transfer savings on payday before other
+                                        spending has a chance to claim it.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="play-card">
+                                <span class="play-num">4</span>
+                                <div>
+                                    <h3>
+                                        <i class="fas fa-calendar-week"></i>
+                                        Review it weekly
+                                    </h3>
+                                    <p>
+                                        A five-minute check catches small drift before
+                                        it becomes an entire unexplained month.
+                                    </p>
+                                </div>
+                            </li>
+                        </ol>
+                    </section>
+
+                    <section class="blog-section reveal">
+                        <h2 class="blog-h2 center">
+                            This isn't about perfection
+                        </h2>
+
+                        <p class="center">
+                            Overspending in one category does not mean your budget
+                            failed. It means the budget showed you where to adjust.
+                        </p>
+
+                        <p class="kicker-line center">
+                            The goal isn't a perfect spreadsheet.
+                            <span class="grad-text">
+                                It's never being surprised by your own money.
+                            </span>
+                        </p>
+                    </section>
+
+                    <section class="blog-cta reveal">
+                        <h2>Ready to build a budget you'll actually keep?</h2>
+
+                        <p>
+                            Grab the free template and let WlthyWise help with the math.
+                        </p>
+
+                        <a href="index.html#contact"
+                            class="cta-button cta-button--solid">
+                            Get Started
+                        </a>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
         </div>
     </main>
@@ -834,7 +2178,401 @@
         }
         [rRaise,rPct,rYears].forEach(function(el){ el && el.addEventListener('input', renderRaise); });
         if(rRaise) renderRaise();
-    })();
-    </script>
+  
+    /* ---- Post 3: Emergency fund target ---- */
+var efExpenses = document.getElementById('ef-expenses');
+var efMonths = document.getElementById('ef-months');
+var efMonthsVal = document.getElementById('ef-months-val');
+var efTarget = document.getElementById('ef-target');
+var efWeekly = document.getElementById('ef-weekly');
+var efWeeklyVal = document.getElementById('ef-weekly-val');
+var efWeeks = document.getElementById('ef-weeks');
+var efMonthsFill = document.getElementById('ef-monthsfill');
+var efDateTarget = document.getElementById('ef-datetarget');
+
+function getEmergencyTarget(){
+    var expenses = Math.max(0, parseFloat(efExpenses.value) || 0);
+    var months = parseInt(efMonths.value) || 1;
+
+    return expenses * months;
+}
+
+function renderEmergencyTarget(){
+    if(!efExpenses || !efMonths) return;
+
+    var months = parseInt(efMonths.value) || 1;
+    var target = getEmergencyTarget();
+
+    efMonthsVal.textContent =
+        months + (months === 1 ? ' month' : ' months');
+
+    efTarget.textContent = fmt(target);
+    efDateTarget.textContent = fmt(target);
+
+    renderEmergencyFill();
+}
+
+/* ---- Post 3: Emergency fund timeline ---- */
+function renderEmergencyFill(){
+    if(!efWeekly || !efExpenses || !efMonths) return;
+
+    var weekly = Math.max(1, parseFloat(efWeekly.value) || 1);
+    var target = getEmergencyTarget();
+
+    var weeks = target > 0 ? target / weekly : 0;
+    var monthsToFill = weeks / 4.33;
+
+    efWeeklyVal.textContent = fmt(weekly);
+    efWeeks.textContent =
+        Math.ceil(weeks).toLocaleString('en-US') + ' weeks';
+
+    efMonthsFill.textContent =
+        Math.ceil(monthsToFill).toLocaleString('en-US') +
+        (Math.ceil(monthsToFill) === 1 ? ' month' : ' months');
+
+    efDateTarget.textContent = fmt(target);
+}
+
+if(efExpenses){
+    efExpenses.addEventListener('input', renderEmergencyTarget);
+}
+
+if(efMonths){
+    efMonths.addEventListener('input', renderEmergencyTarget);
+}
+
+if(efWeekly){
+    efWeekly.addEventListener('input', function(){
+        document.querySelectorAll('.ef-preset').forEach(function(button){
+            button.classList.remove('active');
+        });
+
+        renderEmergencyFill();
+    });
+}
+
+document.querySelectorAll('.ef-preset').forEach(function(button){
+    button.addEventListener('click', function(){
+        document.querySelectorAll('.ef-preset').forEach(function(item){
+            item.classList.remove('active');
+        });
+
+        button.classList.add('active');
+        efWeekly.value = button.dataset.amt;
+
+        renderEmergencyFill();
+    });
+});
+
+if(efExpenses && efMonths && efWeekly){
+    renderEmergencyTarget();
+}
+
+/* ---- Post 4: Credit utilization ---- */
+var crLimit = document.getElementById('cr-limit');
+var crBalance = document.getElementById('cr-balance');
+var crBalanceVal = document.getElementById('cr-balance-val');
+var crResult = document.getElementById('cr-result');
+
+function renderCreditUtilization(){
+    if(!crLimit || !crBalance || !crBalanceVal || !crResult) return;
+
+    var limit = Math.max(1, parseFloat(crLimit.value) || 1);
+
+    crBalance.max = limit;
+
+    var balance = Math.min(
+        Math.max(0, parseFloat(crBalance.value) || 0),
+        limit
+    );
+
+    if(parseFloat(crBalance.value) > limit){
+        crBalance.value = limit;
+    }
+
+    var percent = balance / limit * 100;
+    var label;
+    var color;
+
+    if(percent <= 10){
+        label = 'Excellent';
+        color = '#16a34a';
+    } else if(percent <= 30){
+        label = 'Good';
+        color = '#65a30d';
+    } else if(percent <= 50){
+        label = 'Fair';
+        color = '#f59e0b';
+    } else {
+        label = 'Risky';
+        color = '#ef4444';
+    }
+
+    crBalanceVal.textContent = fmt(balance);
+    crResult.textContent = Math.round(percent) + '% — ' + label;
+    crResult.style.color = color;
+    crResult.style.background = color + '1f';
+}
+
+if(crLimit){
+    crLimit.addEventListener('input', renderCreditUtilization);
+}
+
+if(crBalance){
+    crBalance.addEventListener('input', renderCreditUtilization);
+}
+
+if(crLimit && crBalance){
+    renderCreditUtilization();
+}
+
+/* ---- Post 4: Credit interest cost ---- */
+var crCarry = document.getElementById('cr-carry');
+var crApr = document.getElementById('cr-apr');
+var crAprVal = document.getElementById('cr-apr-val');
+var crMonthlyInterest = document.getElementById('cr-monthly-interest');
+var crYearlyInterest = document.getElementById('cr-yearly-interest');
+
+function renderCreditInterest(){
+    if(
+        !crCarry ||
+        !crApr ||
+        !crAprVal ||
+        !crMonthlyInterest ||
+        !crYearlyInterest
+    ) return;
+
+    var balance = Math.max(0, parseFloat(crCarry.value) || 0);
+    var apr = Math.max(0, parseFloat(crApr.value) || 0);
+
+    var monthlyInterest = balance * (apr / 100 / 12);
+    var yearlyInterest = monthlyInterest * 12;
+
+    crAprVal.textContent = apr + '%';
+    crMonthlyInterest.textContent = fmt(monthlyInterest);
+    crYearlyInterest.textContent = fmt(yearlyInterest);
+}
+
+if(crCarry){
+    crCarry.addEventListener('input', renderCreditInterest);
+}
+
+if(crApr){
+    crApr.addEventListener('input', renderCreditInterest);
+}
+
+if(crCarry && crApr){
+    renderCreditInterest();
+}
+
+/* ---- Post 5: Budget builder ---- */
+var bgIncome = document.getElementById('bg-income');
+
+var bgSliders = {
+    housing: document.getElementById('cat-housing'),
+    food: document.getElementById('cat-food'),
+    transport: document.getElementById('cat-transport'),
+    fun: document.getElementById('cat-fun'),
+    savings: document.getElementById('cat-savings')
+};
+
+var bgColors = {
+    housing: '#3b82f6',
+    food: '#f59e0b',
+    transport: '#8b5cf6',
+    fun: '#ef4444',
+    savings: '#22c55e'
+};
+
+var bgDonut = document.getElementById('bg-donut');
+var bgUnassigned = document.getElementById('bg-unassigned');
+
+function renderBudgetBuilder(){
+    if(!bgIncome || !bgDonut || !bgUnassigned) return;
+
+    var incomeValue = Math.max(
+        0,
+        parseFloat(bgIncome.value) || 0
+    );
+
+    var percentages = {};
+    var totalPercent = 0;
+
+    Object.keys(bgSliders).forEach(function(key){
+        var slider = bgSliders[key];
+
+        if(!slider) return;
+
+        var percent = Math.max(
+            0,
+            parseFloat(slider.value) || 0
+        );
+
+        percentages[key] = percent;
+        totalPercent += percent;
+
+        var percentLabel =
+            document.getElementById('bg-' + key + '-val');
+
+        var amountLabel =
+            document.getElementById('bg-' + key + '-amt');
+
+        if(percentLabel){
+            percentLabel.textContent = percent + '%';
+        }
+
+        if(amountLabel){
+            amountLabel.textContent =
+                fmt(incomeValue * percent / 100);
+        }
+    });
+
+    if(totalPercent > 0){
+        var runningPercent = 0;
+        var gradientParts = [];
+
+        Object.keys(percentages).forEach(function(key){
+            var normalizedPercent =
+                percentages[key] / totalPercent * 100;
+
+            var start = runningPercent;
+            var end = runningPercent + normalizedPercent;
+
+            gradientParts.push(
+                bgColors[key] +
+                ' ' + start + '% ' + end + '%'
+            );
+
+            runningPercent = end;
+        });
+
+        bgDonut.style.background =
+            'conic-gradient(' + gradientParts.join(', ') + ')';
+    } else {
+        bgDonut.style.background = '#e2e8f0';
+    }
+
+    var remainingPercent = 100 - totalPercent;
+
+    bgUnassigned.classList.remove('zero', 'over');
+
+    if(Math.abs(remainingPercent) < 0.5){
+        bgUnassigned.textContent =
+            '$0 unassigned — every dollar has a job';
+
+        bgUnassigned.classList.add('zero');
+    } else if(remainingPercent > 0){
+        bgUnassigned.textContent =
+            fmt(incomeValue * remainingPercent / 100) +
+            ' unassigned — give it a job above';
+    } else {
+        bgUnassigned.textContent =
+            fmt(incomeValue * Math.abs(remainingPercent) / 100) +
+            ' over budget — dial something back';
+
+        bgUnassigned.classList.add('over');
+    }
+}
+
+if(bgIncome){
+    bgIncome.addEventListener(
+        'input',
+        renderBudgetBuilder
+    );
+}
+
+Object.keys(bgSliders).forEach(function(key){
+    var slider = bgSliders[key];
+
+    if(slider){
+        slider.addEventListener(
+            'input',
+            renderBudgetBuilder
+        );
+    }
+});
+
+if(bgIncome){
+    renderBudgetBuilder();
+}
+
+/* ---- Post 5: Monthly redirect calculator ---- */
+var bgRedirect = document.getElementById('bg-redirect');
+var bgRedirectVal =
+    document.getElementById('bg-redirect-val');
+
+var bgYears = document.getElementById('bg-years');
+var bgYearsVal =
+    document.getElementById('bg-years-val');
+
+var bgTotalIn =
+    document.getElementById('bg-total-in');
+
+var bgFuture =
+    document.getElementById('bg-future');
+
+function renderBudgetRedirect(){
+    if(
+        !bgRedirect ||
+        !bgRedirectVal ||
+        !bgYears ||
+        !bgYearsVal ||
+        !bgTotalIn ||
+        !bgFuture
+    ) return;
+
+    var monthly =
+        Math.max(0, parseFloat(bgRedirect.value) || 0);
+
+    var years =
+        Math.max(1, parseInt(bgYears.value) || 1);
+
+    var months = years * 12;
+    var monthlyRate = 0.07 / 12;
+
+    var totalContributed = monthly * months;
+
+    var futureValue;
+
+    if(monthlyRate > 0){
+        futureValue =
+            monthly *
+            (
+                (Math.pow(1 + monthlyRate, months) - 1) /
+                monthlyRate
+            );
+    } else {
+        futureValue = totalContributed;
+    }
+
+    bgRedirectVal.textContent = fmt(monthly);
+
+    bgYearsVal.textContent =
+        years + (years === 1 ? ' year' : ' years');
+
+    bgTotalIn.textContent = fmt(totalContributed);
+    bgFuture.textContent = fmt(futureValue);
+}
+
+if(bgRedirect){
+    bgRedirect.addEventListener(
+        'input',
+        renderBudgetRedirect
+    );
+}
+
+if(bgYears){
+    bgYears.addEventListener(
+        'input',
+        renderBudgetRedirect
+    );
+}
+
+if(bgRedirect && bgYears){
+    renderBudgetRedirect();
+}
+
+})();
+</script>
 </body>
 </html>
